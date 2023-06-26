@@ -1,0 +1,69 @@
+.me {
+  position: fixed;
+  top: 20%;
+  left: 65%;
+
+  transform: translate(-50%);
+
+  height: 45vh;
+  width: 45vh;
+  border-radius: 50%;
+
+  box-shadow: inset .5vh .5vh .5vh rgba(19, 19, 19, 0.6), inset -.5vh -.5vh .5vh rgba(19, 19, 19, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: .8%;
+}
+
+.me img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+  object-position: -5vh 0;
+
+  border-radius: 50%;
+  box-shadow: .5vh .5vh .5vh rgba(19, 19, 19, 0.6), -.5vh -.5vh .5vh rgba(19, 19, 19, 0.3);
+}
+
+.blurb {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+
+  transform: translate(-50%);
+}
+
+.blurb p {
+  font-size: 2.5vh;
+  font-weight: 2;
+}
+
+.blurb p:nth-of-type(2) {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+          typing 3.5s steps(39, end),
+          blink-caret .65s step-end infinite;
+}
+
+.blurb h1 {
+  all: unset;
+  font-size: 5vh;
+  font-weight: 999;
+}
+
+.me div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  background: rgba(39, 39, 39, 0.8);
+  z-index: -1;
+  border-radius: 2vh;
+}
