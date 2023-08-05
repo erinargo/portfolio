@@ -13,15 +13,15 @@ const Portfolio = () => {
                     </a>
                     <a href={ 'https://github.com/erinargo/C-Card-Game---War' }>
                         C++ Card Game - War
-                        GitHub doesn't allow for IFrames, please click me \<3
+                        GitHub does not allow iFrames! Click Me!
                     </a>
                     <a href={ 'https://github.com/erinargo/CSC471' }>
                         CSC 471
-                        GitHub doesn't allow for IFrames, please click me \<3
+                        GitHub does not allow iFrames! Click Me!
                     </a>
                     <a href={ 'https://github.com/erinargo/OnlyPets' }>
                         OnlyPets
-                        GitHub doesn't allow for IFrames, please click me \<3
+                        GitHub does not allow iFrames! Click Me!
                     </a>
                 </div>
             </span>
