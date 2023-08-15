@@ -14,3 +14,13 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: gray;
 }
+
+@media only screen and (max-width: 600px) {
+  * {
+    display: none;
+  }
+
+  body {
+    content: 'This app was built primarily for desktop screens, please view on a bigger resolution <3 - Erin'
+  }
+}
