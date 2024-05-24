@@ -17,9 +17,9 @@ const Portfolio = () => {
                         <img src={ 'https://www.dropbox.com/scl/fi/7fop0amcjxr54lxtmbhra/fmar.png?rlkey=evrp612iz0j2xgg9l47wsq4cm&st=unee4pwl&dl=1' }  alt={ 'FMAR Core Concept' }/>
                     </a>
 
-                    <a>
-                        StyleVeRse
-                        <iframe src={ 'https://irlab.uncg.edu:8081/erinargo/vr-fashion-show' } />
+                    <a href={ 'https://irlab.uncg.edu:8081/erinargo/vr-fashion-show' }>
+                        StyleVeRse <br/>
+                        No Graphic Representation at this time
                     </a>
 
                 </div>
