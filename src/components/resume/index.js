@@ -11,10 +11,10 @@ const Resume = () => {
             <Nav/>
 
             <object className="pdf"
-                    data={ resume }>
+                    data={ '../Erin resume.pdf' }>
             </object>
 
-            <a href={'https://cdn.discordapp.com/attachments/384897791291424789/1243654693574545408/Erin_Resume.pdf?ex=66524330&is=6650f1b0&hm=db5171a3b16fe17e37519c6912a5321101df65a4674985c8161e03b919cdd261&'}>
+            <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'}>
                 <FontAwesomeIcon className={'download'} icon={faDownload}></FontAwesomeIcon>
             </a>
         </>
