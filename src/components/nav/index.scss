@@ -143,20 +143,28 @@ a {
     display: block;
   }
 
-  .nav-sections section {
+  .nav-sections {
     display: none;
     flex-direction: column;
     
     flex-wrap: nowrap;
     
     width: 100%;
-    justify-content: center;
     align-items: center;
-    
     position: absolute;
     top: 8vh;
     background: rgba(39, 39, 39, 0.9);
     padding: 2vh 0;
+  }
+  
+  .nav-sections.open section {
+    display: flex;
+    flex-direction: column-reverse;
+
+    flex-wrap: nowrap;
+    
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-sections.open {
@@ -165,7 +173,6 @@ a {
 
   .nav-mid, .nav-right {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 
