@@ -1,5 +1,6 @@
 import Nav from '../nav'
 import './index.scss'
+import './Erin resume.pdf'
 import { Document, Page, pdfjs } from "react-pdf";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +13,7 @@ const Resume = () => {
         <>
             <Nav />
             <div className={'doc-wrapper'}>
-                <Document file={ '/Erin resume.pdf' }>
+                <Document file={ './Erin resume.pdf' }>
                     <Page pageIndex={0} />
                     <br/>
                     <Page pageIndex={1} />
