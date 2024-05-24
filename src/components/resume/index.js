@@ -13,11 +13,8 @@ const Resume = () => {
         <>
             <Nav />
             <div className={'doc-wrapper'}>
-                <Document file={ './Erin resume.pdf' }>
-                    <Page pageIndex={0} />
-                    <br/>
-                    <Page pageIndex={1} />
-                </Document>
+                <embed src="./Erin resume.pdf" width="500" height="375"
+                       type="application/pdf"/>
             </div>
 
             <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'}>
