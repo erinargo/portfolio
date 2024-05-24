@@ -19,7 +19,7 @@ const Resume = () => {
                 </Document>
             </div>
 
-            <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=0'}>
+            <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'}>
                 <FontAwesomeIcon className={ 'download' } icon={ faDownload }></FontAwesomeIcon>
             </a> 
         </>
