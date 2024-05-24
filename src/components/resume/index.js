@@ -12,12 +12,15 @@ const Resume = () => {
         <>
             <Nav />
             <div className={'doc-wrapper'}>
-                <object data="https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1" type="application/pdf">
-                </object>
+                <Document file={ '/Erin resume.pdf' }>
+                    <Page pageIndex={0} />
+                    <br/>
+                    <Page pageIndex={1} />
+                </Document>
             </div>
 
             <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'}>
-                <FontAwesomeIcon className={'download'} icon={faDownload}></FontAwesomeIcon>
+                <FontAwesomeIcon className={ 'download' } icon={ faDownload }></FontAwesomeIcon>
             </a> 
         </>
     );
