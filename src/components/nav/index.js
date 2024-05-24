@@ -1,7 +1,7 @@
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {faEnvelope, faBars, faTimes, faDownload} from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from "react";
 
 const Nav = () => {
@@ -78,8 +78,10 @@ const Nav = () => {
                     <section className='nav-mid'>
                         <a href='/'>Home</a>
                         <a href='/about'>About Me</a>
-                        <a href='/resume'>Resume</a>
                         <a href='/portfolio'>Recent Projects</a>
+                        <a href='https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'>
+                            Resume <FontAwesomeIcon className={'download'} icon={faDownload}></FontAwesomeIcon>
+                        </a>
                     </section>
 
                     <section className='nav-right'>
@@ -87,7 +89,7 @@ const Nav = () => {
                             <FontAwesomeIcon icon={faGithub}/>
                         </a>
                         <a href='https://www.linkedin.com/in/erin-argo-9b4052281/'>
-                            <FontAwesomeIcon icon={faLinkedin}/>
+                        <FontAwesomeIcon icon={faLinkedin}/>
                         </a>
                         <a href='mailto:erinjamieargo@gmail.com'>
                             <FontAwesomeIcon icon={faEnvelope}/>
