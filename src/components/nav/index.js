@@ -1,10 +1,16 @@
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import {useEffect} from "react";
+import { faEnvelope, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from "react";
 
 const Nav = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     const fireflies = (
         <>
@@ -60,36 +66,39 @@ const Nav = () => {
     return (
         <>
             <nav>
-                <section className={ 'logo' }>
-                    <h1><a href={'/'}>Erin Argo</a></h1>
+                <section className='logo'>
+                    <h1><a href='/'>Erin Argo</a></h1>
                 </section>
 
-                <section className={'nav-mid'}>
-                    <a href={'/'}>Home</a>
-                    <a href={'/about'}> About Me </a>
-                    <a href={'/resume'}> Resume </a>
-                    <a href={'/portfolio'}> Recent Projects </a>
-                </section>
+                <button className='menu-toggle' onClick={toggleMenu}>
+                    <FontAwesomeIcon icon={isOpen ? faTimes : faBars}/>
+                </button>
 
-                <section className={'nav-right'}>
-                <a href={ 'https://github.com/erinargo' }>
-                        <FontAwesomeIcon icon={ faGithub } />
-                    </a>
+                <div className={`nav-sections ${isOpen ? 'open' : ''}`}>
+                    <section className='nav-mid'>
+                        <a href='/'>Home</a>
+                        <a href='/about'>About Me</a>
+                        <a href='/resume'>Resume</a>
+                        <a href='/portfolio'>Recent Projects</a>
+                    </section>
 
-                    <a href={ 'https://www.linkedin.com/in/erin-argo-9b4052281/' }>
-                        <FontAwesomeIcon icon={ faLinkedin } />
-                    </a>
-
-
-                    <a href={ 'mailto:erinjamieargo@gmail.com' }>
-                        <FontAwesomeIcon icon={ faEnvelope } />
-                    </a>
-                </section>
+                    <section className='nav-right'>
+                        <a href='https://github.com/erinargo'>
+                            <FontAwesomeIcon icon={faGithub}/>
+                        </a>
+                        <a href='https://www.linkedin.com/in/erin-argo-9b4052281/'>
+                            <FontAwesomeIcon icon={faLinkedin}/>
+                        </a>
+                        <a href='mailto:erinjamieargo@gmail.com'>
+                            <FontAwesomeIcon icon={faEnvelope}/>
+                        </a>
+                    </section>
+                </div>
             </nav>
 
-            { fireflies }
-            { redCircle }
-            { purpleSquare }
+            {fireflies}
+            {redCircle}
+            {purpleSquare}
         </>
     );
 }

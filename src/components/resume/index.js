@@ -1,12 +1,9 @@
 import Nav from '../nav'
 import './index.scss'
-import './Erin resume.pdf'
-import { Document, Page, pdfjs } from "react-pdf";
+import resume from './Erin resume.pdf'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Resume = () => {
     return (
@@ -14,8 +11,7 @@ const Resume = () => {
             <Nav/>
 
             <object className="pdf"
-                    data=
-                        "./Erin resume.pdf">
+                    data={ resume }>
             </object>
 
             <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'}>
