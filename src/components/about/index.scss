@@ -15,4 +15,13 @@
   background: #272727;
 
   font-size: 2.2vh;
+
+  a {
+    color: #fff;
+    transition: .4s;
+
+    &:hover {
+      color: #FF7518;
+    }
+  }
 }

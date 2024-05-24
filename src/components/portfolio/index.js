@@ -9,20 +9,19 @@ const Portfolio = () => {
                 <div className={ 'pages' }>
                     <a href={ '/' }>
                         Portfolio - ReactJS
-                        <iframe src={ '/' } />
+                        <iframe src={ '/portfolio' } />
                     </a>
-                    <a href={ 'https://github.com/erinargo/C-Card-Game---War' }>
-                        C++ Card Game - War
-                        GitHub does not allow iFrames! Click Me!
+
+                    <a>
+                        FirstModulAR
+                        <img src={ 'https://www.dropbox.com/scl/fi/7fop0amcjxr54lxtmbhra/fmar.png?rlkey=evrp612iz0j2xgg9l47wsq4cm&st=unee4pwl&dl=1' }  alt={ 'FMAR Core Concept' }/>
                     </a>
-                    <a href={ 'https://github.com/erinargo/CSC471' }>
-                        CSC 471
-                        GitHub does not allow iFrames! Click Me!
+
+                    <a>
+                        StyleVeRse
+                        <iframe src={ 'https://irlab.uncg.edu:8081/erinargo/vr-fashion-show' } />
                     </a>
-                    <a href={ 'https://github.com/erinargo/OnlyPets' }>
-                        OnlyPets
-                        GitHub does not allow iFrames! Click Me!
-                    </a>
+
                 </div>
             </span>
         </>

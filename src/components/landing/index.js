@@ -11,7 +11,7 @@ const Landing = () => {
           <span className={'blurb'}>
               <p>Hello</p>
               <h1>My name is Erin</h1>
-              <p>Fullstack Developer & Software Engineer</p>
+              <p>Fullstack Developer, Software Engineer, Game Developer</p>
           </span>
           { me }
       </>

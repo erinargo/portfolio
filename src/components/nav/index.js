@@ -53,6 +53,8 @@ const Nav = () => {
             el.style = "top: " + randomY + "px!important; left: " + randomX + "px!important; height: "
                 + randomSize + "vh; width: " + randomSize + "vh; " + directions[Math.floor(Math.random() * directions.length)];
         })
+
+        document.title = 'Erin Argo | Portfolio';
     })
 
     return (
@@ -62,15 +64,15 @@ const Nav = () => {
                     <h1><a href={'/'}>Erin Argo</a></h1>
                 </section>
 
-                <section className={ 'nav-mid' }>
+                <section className={'nav-mid'}>
                     <a href={'/'}>Home</a>
-                    <a href={'/resume'}> Resume </a>
-                    <a href={'/portfolio'}> Portfolio </a>
                     <a href={'/about'}> About Me </a>
+                    <a href={'/resume'}> Resume </a>
+                    <a href={'/portfolio'}> Recent Projects </a>
                 </section>
 
-                <section className={ 'nav-right' }>
-                    <a href={ 'https://github.com/erinargo' }>
+                <section className={'nav-right'}>
+                <a href={ 'https://github.com/erinargo' }>
                         <FontAwesomeIcon icon={ faGithub } />
                     </a>
 

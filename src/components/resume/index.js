@@ -27,8 +27,8 @@ const Resume = () => {
             <div className={'doc-wrapper'}>
                 <Document file={resume}>
                     <Page pageIndex={0} />
+                    <br/>
                     <Page pageIndex={1} />
-                    <Page pageIndex={2} />
                 </Document>
             </div>
 
