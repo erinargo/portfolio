@@ -1,7 +1,7 @@
 import Nav from '../nav'
 import './index.scss'
 import { Document, Page, pdfjs } from "react-pdf";
-import resume from '../../Erin resume.pdf';
+import resume from './Erin resume.pdf';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
