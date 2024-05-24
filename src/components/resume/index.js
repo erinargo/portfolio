@@ -1,7 +1,6 @@
 import Nav from '../nav'
 import './index.scss'
 import { Document, Page, pdfjs } from "react-pdf";
-import resume from '%PUBLIC_URL%/Erin resume.pdf';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
@@ -25,7 +24,7 @@ const Resume = () => {
         <>
             <Nav />
             <div className={'doc-wrapper'}>
-                <Document file={resume}>
+                <Document file={ 'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1' }>
                     <Page pageIndex={0} />
                     <br/>
                     <Page pageIndex={1} />
