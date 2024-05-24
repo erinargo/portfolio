@@ -11,7 +11,7 @@ const Resume = () => {
             <Nav/>
 
             <object className="pdf"
-                    data={ '../Erin resume.pdf' }>
+                    data={ '../src/Erin resume.pdf' }>
             </object>
 
             <a href={'https://www.dropbox.com/scl/fi/m48mv0hgpoyzze0g9xxeo/Erin-Resume.pdf?rlkey=cesrx892smokt42ozruz1plus&st=lfodj4ly&dl=1'}>
