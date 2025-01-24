@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "eslint": "^9.19.0",
+    "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.6"
+    "scss": "^0.2.4"
   },
   "devDependencies": {
-    "eslint": "^9",
+    "@eslint/eslintrc": "^3",
     "eslint-config-next": "15.1.6",
-    "@eslint/eslintrc": "^3"
+    "globals": "^15.14.0"
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true,
+      "document": true
+    }
   }
 }
