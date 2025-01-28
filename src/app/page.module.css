@@ -29,8 +29,8 @@
 
 .main {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  flex-direction: row;
+  gap: 15px;
   grid-row-start: 2;
 }
 
@@ -54,6 +54,50 @@
   padding: 2px 4px;
   border-radius: 4px;
   font-weight: 600;
+}
+
+.floatLeft {
+  width: 15vw;
+}
+
+.floatRight {
+  width: 35vw;
+}
+
+.floatLeft, .floatRight {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  gap: 5vh;
+  margin: 2vh;
+}
+
+.floatLeft *,
+.floatRight *,
+.skills * {
+  width: 100%;
+}
+
+.floatLeft img {
+  height: 10vh;
+  width: 10vh;
+
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  justify-content: center;
 }
 
 .ctas {
@@ -98,15 +142,99 @@ a.secondary {
   gap: 24px;
 }
 
-.footer a {
+.header {
+  grid-row-start: 1;
+  gap: 24px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  background: var(--foreground);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+
+  padding: 5vh;
+}
+
+.footer a, .header a {
   display: flex;
   align-items: center;
   gap: 8px;
+
+  font-weight: bold;
 }
 
-.footer img {
+.skills h1 {
+  font-weight: bold;
+  font-size: 2vh;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer img, .header img {
   flex-shrink: 0;
 }
+
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin: .5vh;
+  padding: 1vh;
+
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
+
+  background: rgba(0,0,0,0.2);
+
+  border-radius: 0.45vh;
+  transition: 0.4s;
+}
+
+.skill:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
+  background: rgba(0,0,0,0.45);
+
+  cursor: pointer;
+}
+
+.skillhead {
+  display: grid;
+}
+
+.spotlight {
+  height: 55vh;
+  width: 55vh;
+
+  border-radius: 50%;
+
+  background: radial-gradient(rgba(48, 95, 223, 0.15), transparent 80%);
+
+  transform: translate(-50%, -50%);
+
+  position: absolute;
+  z-index: -1;
+}
+
+.skillhead a, .skillhead b, .skillhead span a {
+  font-size: 1.5vh;
+}
+
+.skillbody {
+  font-size: 1vh;
+
+  padding: 0.5vh;
+}
+
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
@@ -120,7 +248,7 @@ a.secondary {
     border-color: transparent;
   }
 
-  .footer a:hover {
+  .footer a:hover, .header a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
   }
@@ -154,7 +282,7 @@ a.secondary {
     min-width: auto;
   }
 
-  .footer {
+  .footer, .header {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;

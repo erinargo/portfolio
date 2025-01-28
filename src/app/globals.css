@@ -32,8 +32,19 @@ body {
   margin: 0;
 }
 
+*::-webkit-scrollbar {
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+
 a {
-  color: inherit;
+  /*color: inherit;*/
+  color: var(--accent);
+
   text-decoration: none;
 }
 
