@@ -1,157 +1,144 @@
 "use client";
-import Image from "next/image";
 import styles from "./page.module.css";
-import {useState} from "react";
+import { useState, useEffect } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin, faGoogleScholar, faOrcid } from "@fortawesome/free-brands-svg-icons";
+
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [stars, setStars] = useState([]);
 
-    const [position, setPosition] = useState({x: 0, y: 0});
-    const spotlight = (
-        <div className={styles.spotlight} style={{
-            left: position.x,
-            top: position.y,
-            position: 'absolute',
-        }}></div>
-    );
+    // Calculate the star positions once when the component mounts
+    useEffect(() => {
+        let starArray = [];
+        const numberOfStars = 200;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            let s = Math.random();
+            const star = {
+                left: Math.random() * 100, // Store position as percentage
+                top: Math.random() * 100,
+                size: s < 0.5 ? "tiny" : s < 0.8 ? "small" : "medium",
+                duration: `${1 + Math.random() * 2}s`,
+                delay: `${1 + Math.random() * 2}s`,
+                opacity: `${0.3 + Math.random() * 0.5}`,
+                originalLeft: Math.random() * 100, // Store original position as percentage
+                originalTop: Math.random() * 100,
+            };
+            starArray.push(star);
+        }
+
+        setStars(starArray);
+    }, []); // Empty dependency array ensures this runs only once on mount
 
     const handleMouseMove = (event) => {
         setPosition({
             x: event.pageX,
-            y: event.pageY
+            y: event.pageY,
         });
     };
 
+    // Function to calculate distance between the cursor and each star
+    const calculateDistance = (star) => {
+        const cursorX = (position.x / window.innerWidth);
+        const cursorY = (position.y / window.innerHeight);
+        const starX = star.left;
+        const starY = star.top;
+
+        // Euclidean distance formula
+        return Math.sqrt(Math.pow(cursorX - starX, 2) + Math.pow(cursorY - starY, 2));
+    };
+
+    // Function to move the star away if the cursor is too close
+    const moveStarAway = (star) => {
+        const distance = calculateDistance(star);
+        const minDistance = 50; // Minimum distance to trigger movement (in percentage)
+
+        // If the cursor is within the minimum distance, move the star away
+        if (distance < minDistance) {
+            const angle = Math.atan2(position.y - window.innerHeight * (star.top / 100), position.x - window.innerWidth * (star.left / 100));
+            const newLeft = star.originalLeft + 3 * Math.cos(angle); // Move away from the cursor
+            const newTop = star.originalTop + 3 * Math.sin(angle);
+            return { left: newLeft, top: newTop };
+        }
+
+        // Return to the original position if the cursor is not too close
+        return { left: star.originalLeft, top: star.originalTop };
+    };
+
+    const spotlight = (
+        <div
+            className={styles.spotlight}
+            style={{
+                left: position.x,
+                top: position.y,
+                position: "absolute",
+            }}
+        ></div>
+    );
+
     return (
         <div className={styles.page} onMouseMove={handleMouseMove}>
+            {stars.map((star, i) => {
+                const { left, top } = moveStarAway(star); // Get updated position based on cursor distance
 
-            { spotlight }
+                return (
+                    <div
+                        key={i}
+                        className={`${styles[star.size]}`}
+                        style={{
+                            position: "absolute",
+                            left: `${left}%`, // Apply percentage-based positions
+                            top: `${top}%`,
+                            animation: `${styles.starTwinkle} ${star.duration} ease-in-out infinite, ${styles.starParallax} ${star.duration} linear infinite`,
+                            opacity: star.opacity,
+                            width: star.size === "tiny" ? `1.5px` : star.size === "small" ? `1.8px` : `2.5px`,
+                            height: star.size === "tiny" ? `1.5px` : star.size === "small" ? `1.8px` : `2.5px`,
+                            background: `#fff`,
+                            zIndex: -1,
+                            borderRadius: `50%`,
+
+                            transition: `0.4s`,
+                        }}
+                    />
+                );
+            })}
+
+            {spotlight}
 
             <header className={styles.header}>
-                <div>
-                    <a style={{
-                        
-                    }}>Status</a>
-                    <a style={{
-
-                    }}>Projects</a>
-                    <a style={{
-
-                    }}>Experience</a>
-                </div>
-
-                <div>
-                <a>Erin Argo, B.Sc</a>
-                    <a>Research Assistant, PhD</a>
-                    <a>Augusta GA, United States of America</a>
-                    <a href={'mailto:erinzoenyx@gmail.com'}>erinzoenyx@gmail.com</a>
-                    <a href={'https://orcid.org/0009-0004-3075-8047'}>ORCiD: 0009-0004-3075-8047</a>
-                </div>
+                <a href={ 'https://github.com/erinargo' }> <FontAwesomeIcon icon={faGithub} /> </a>
+                <FontAwesomeIcon icon={faLinkedin} />
+                <FontAwesomeIcon icon={faOrcid}/>
+                <FontAwesomeIcon icon={faGoogleScholar} />
+                <FontAwesomeIcon icon={faEnvelope} />
             </header>
 
             <main className={styles.main}>
                 <div className={styles.floatLeft}>
-                    <div><img
-                        src={'https://sugargeekshow.com/wp-content/uploads/2019/10/chocolate-chip-muffins-featured.jpg'}
-                        alt={'erin-portrait'}/></div>
-                    <div className={styles.skills}>
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>Status</b>
-                                <b>Research Assistant at Augusta University, B.Sc in Computer Science</b>
-                            </div>
+                    <div className={styles.logoName}>
+                        <div>Erin Argo</div>
+                        <div className={styles.logoStatus}>
+                            <a>Researcher</a>
+                            <a>Software Engineer</a>
+                            <a>Front-End</a>
+                            <a>Back-End</a>
+                            <a>Game Developer</a>
                         </div>
-
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>Skills</b>
-                                <b>Java, C#/.Net, C, C++, PHP, Python, JavaScript, SQL, R</b>
-                            </div>
-                        </div>
-
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>Interests</b>
-                                <b>Game Development, Human-Computer Interaction, Fullstack Engineering, Research</b>
-                            </div>
-                        </div>
-
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>Links</b>
-                                <b>Github | ORCiD | LinkedIn | erinzoenyx@gmail.com</b>
+                        <div className={styles.skills}>
+                            <div className={styles.skill}>
+                                <div className={styles.skillhead}>
+                                    <b>Java, C#/.Net, C, C++, PHP, Python, JavaScript, SQL, R</b>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div className={styles.floatRight}>
-                    <div className={styles.skills}>
-                        <h1>About</h1>
-                        I graduated from The University of North Carolina at Greensboro in 2024 with my Bachelors of
-                        Science in Computer Science where, as a student,
-                        I worked as a research assistant under Dr. Regis Kopper. Since then, I have been an avid
-                        researcher and PhD student of Human-Computer Interaction working under Dr. Jeronimo Grandi at
-                        Augusta University in Augusta, Georgia. My active interests are in researching, designing, and
-                        developing 3D User-Interfaces. I have eight years of experience in Fullstack Engineering
-                        and Game Development with two years of experience as a researcher.
-                    </div>
-                    <div className={styles.skills}>
-                        <h1>Projects</h1>
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>2025 - Present</b>
-                                <b>Asymmetric Cross-Reality Collaboration - ACCR</b>
-                                <span>
-                                  <a>Github Link</a>
-                                  <a>Publication Link</a>
-                              </span>
-                            </div>
-                            <div className={styles.skillbody}>
-                                ACCR is a Mixed Reality Simulation of a collaboration game with the common goal of
-                                learning about Environmental Sustainability in Urban Environments. <br/>
-                                For ACCR, I acted as the Senior Lead Developer and Researcher and managed a team of five
-                                other people including three researchers and two other developers.
-                            </div>
-                        </div>
-
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>2024 - Present</b>
-                                <b>FirstModulAR - FMAR</b>
-                                <a>Publication Pending</a>
-                            </div>
-                            <div className={styles.skillbody}>
-                                FMAR is a modular Augmented Reality Simulation designed to aid First Responders.<br/>
-                                I led the Systematic Literature Review for this project, prepared resources for
-                                publication, communicated results at demonstrations and conferences, and assisted in
-                                development and designing user studies.
-                            </div>
-                        </div>
-
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>2024</b>
-                                <b>StyleVeRse</b>
-                                <a>Github Link</a>
-                            </div>
-                            <div className={styles.skillbody}>
-                                StyleVR is a fashion show simulation in Virtual Reality designed for Research.<br/>
-                                Developed in collaboration with a colleague to support their research.
-                            </div>
-                        </div>
-
-                        <div className={styles.skill}>
-                            <div className={styles.skillhead}>
-                                <b>2024</b>
-                                <b>Entities of the Void -- EotV</b>
-                                <a>Github Link</a>
-                            </div>
-                            <div className={styles.skillbody}>
-                                EotV is a cooperative game about fighting aliens made in Unity.<br/>
-                                I was a junior developer on this project in collaboration with two other developers.
-                            </div>
-                        </div>
-                    </div>
-
                     <div className={styles.skills}>
                         <h1>Experience</h1>
                         <div className={styles.skill}>
@@ -169,14 +156,69 @@ export default function Home() {
                                 <a>University of North Carolina at Greensboro</a>
                             </div>
                         </div>
+                    </div>
+                    <div className={styles.skills}>
+                        <h1>Projects</h1>
+                        <div className={styles.skill}>
+                            <div className={styles.skillhead}>
+                                <b>2025 - Present</b>
+                                <b>Asymmetric Cross-Reality Collaboration - ACCR</b>
+                                <span>
+                                  <a>Github Link</a>
+                                  <a>Publication Link</a>
+                                </span>
+                            </div>
+                            <div className={styles.skillbody}>
+                                ACCR is a Mixed Reality Simulation of a collaboration game with the common goal of
+                                learning about Environmental Sustainability in Urban Environments. <br/>
+                                For ACCR, I acted as the Senior Lead Developer and Researcher and managed a team of five
+                                other people, including three researchers and two other developers.
+                            </div>
+                        </div>
 
+                        <div className={styles.skill}>
+                            <div className={styles.skillhead}>
+                                <b>2024 - Present</b>
+                                <b>FirstModulAR - FMAR</b>
+                                <a>Publication Pending</a>
+                            </div>
+                            <div className={styles.skillbody}>
+                                FMAR is a modular Augmented Reality Simulation designed to aid First Responders. <br/>
+                                I led the Systematic Literature Review for this project, prepared resources for
+                                publication, communicated results at demonstrations and conferences, and assisted in
+                                development and designing user studies.
+                            </div>
+                        </div>
+
+                        <div className={styles.skill}>
+                            <div className={styles.skillhead}>
+                                <b>2024</b>
+                                <b>StyleVeRse</b>
+                                <a>Github Link</a>
+                            </div>
+                            <div className={styles.skillbody}>
+                                StyleVR is a fashion show simulation in Virtual Reality designed for Research. <br/>
+                                Developed in collaboration with a colleague to support their research.
+                            </div>
+                        </div>
+
+                        <div className={styles.skill}>
+                            <div className={styles.skillhead}>
+                                <b>2024</b>
+                                <b>Entities of the Void -- EotV</b>
+                                <a>Github Link</a>
+                            </div>
+                            <div className={styles.skillbody}>
+                                EotV is a cooperative game about fighting aliens made in Unity. <br/>
+                                I was a junior developer on this project in collaboration with two other developers.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
             <footer className={styles.footer}>
-                <a href={'mailto:erinzoenyx@gmail.com'}>erinzoenyx@gmail.com</a>
+                <a href={"mailto:erinzoenyx@gmail.com"}>erinzoenyx@gmail.com</a>
             </footer>
         </div>
-    )
-        ;
+    );
 }

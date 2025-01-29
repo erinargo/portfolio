@@ -1,8 +1,8 @@
 :root {
-  --background: #222831;
+  --background: #7C444F;
   --foreground: #EEEEEE;
-  --alt: #31363F;
-  --accent: #76ABAE;
+  --alt: #9F5255;
+  --accent: #E16A54;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +16,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body {
@@ -46,6 +47,12 @@ a {
   color: var(--accent);
 
   text-decoration: none;
+  transition: 0.4s;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: dark) {

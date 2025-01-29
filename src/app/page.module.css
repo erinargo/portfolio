@@ -1,3 +1,93 @@
+@-webkit-keyframes fadeInFromNone {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeInFromNone {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeInFromNone {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0.5;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* Keyframes for the star twinkling effect */
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes starParallax {
+  from {
+    transform: translateZ(0);
+  }
+  to {
+    transform: translateZ(200px);
+  }
+}
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -56,26 +146,82 @@
   font-weight: 600;
 }
 
-.floatLeft {
-  width: 15vw;
+.floatLeft, .floatRight{
+  width: 45vw;
 }
 
-.floatRight {
-  width: 35vw;
+.logoName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 4vh;
+  font-weight: bold;
+  border-radius: 50%;
+
+  padding: 5vh;
+}
+
+.logoName div:nth-of-type(1) {
+  color: var(--accent);
+
+  opacity: 75%;
+}
+
+.logoStatus {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vh;
+
+  font-weight: bold;
+}
+
+.logoStatus * {
+  display: flex;
+  flex-direction: column;
+
+  height: 5vh;
+  width: 12vw;
+
+  border-radius: 0.4vh;
+
+  background: var(--alt);
+
+  color: var(--foreground);
+  transition: 0.4s;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 1vh;
+  margin: 1vh;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.logoStatus *:hover {
+  letter-spacing: 0.2px;
+  text-decoration: none!important;
+
+  cursor: default!important;
 }
 
 .floatLeft, .floatRight {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
 
   gap: 5vh;
-  margin: 2vh;
+  margin: 0.5vh;
 }
 
-.floatLeft *,
-.floatRight *,
-.skills * {
+.skills *, .floatRight * {
   width: 100%;
 }
 
@@ -89,7 +235,7 @@
   left: 50%;
   transform: translateX(-50%);
 
-  border-radius: 50%;
+
 }
 
 .skills {
@@ -148,18 +294,55 @@ a.secondary {
 
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
-  background: var(--foreground);
+  background: var(--alt);
 
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
 
   width: 100vw;
 
-  padding: 5vh;
+  padding: 1vh;
+}
+
+.header svg {
+  font-size: 1.5vh;
+  transition: 0.4s;
+
+  color: white!important;
+}
+
+.header svg:hover {
+  color: var(--accent)!important;
+
+  cursor: pointer;
+}
+
+.header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1vh;
+  color: var(--foreground)!important;
+}
+
+.header div * {
+  color: var(--foreground)!important;
+}
+
+.header div a {
+  margin: 0.5vh;
+  transition: 0.4s;
+}
+
+.header div a:hover {
+  letter-spacing: 0.2px;
 }
 
 .footer a, .header a {
@@ -183,6 +366,12 @@ a.secondary {
   flex-shrink: 0;
 }
 
+.skillhead span a:nth-of-type(2) {
+  margin-left: 0.5vh;
+  padding-left: 0.5vh;
+
+  border-left: 1px solid var(--accent);
+}
 
 .skill {
   display: flex;
@@ -217,7 +406,7 @@ a.secondary {
 
   border-radius: 50%;
 
-  background: radial-gradient(rgba(48, 95, 223, 0.15), transparent 80%);
+  background: radial-gradient(rgba(243, 158, 96, 0.15), transparent 80%);
 
   transform: translate(-50%, -50%);
 
