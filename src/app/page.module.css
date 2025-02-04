@@ -443,38 +443,126 @@ a.secondary {
   }
 }
 
+/* Mobile View Adjustments */
 @media (max-width: 600px) {
+  /* General page adjustments */
   .page {
     padding: 32px;
-    padding-bottom: 80px;
+    padding-bottom: 80px; /* Space for footer */
+    min-height: auto;
   }
 
-  .main {
+  /* Header and Footer */
+  .header, .footer {
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    padding: 10px;
   }
 
-  .main ol {
-    text-align: center;
+  .header a, .footer a {
+    font-size: 1.2vh; /* Adjust icon size */
+    margin: 0.5vh;
   }
 
+  .header svg {
+    font-size: 2vh; /* Adjust icon size */
+  }
+
+  /* Main Content Adjustments */
+  .main {
+    flex-direction: column;
+    gap: 20px; /* Reduce gap between sections */
+    padding: 0; /* Remove default padding */
+    align-items: center; /* Center align content */
+  }
+
+  .floatLeft, .floatRight {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+  }
+
+  /* Logo and Status */
+  .logoName {
+    font-size: 6vh; /* Increase font size for readability */
+    padding: 4vh;
+  }
+
+  .logoName div:nth-of-type(1) {
+    opacity: 1; /* Remove opacity for clarity */
+  }
+
+  .logoStatus {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    font-size: 2vh; /* Adjust text size for better readability */
+  }
+
+  .skills {
+    width: 100%; /* Ensure skills section takes full width */
+    padding: 0;
+  }
+
+  .skills h1 {
+    font-size: 3vh; /* Adjust title size */
+  }
+
+  .skill {
+    margin: 1vh 0;
+    padding: 1.5vh;
+    width: 90%;
+  }
+
+  .skillhead b {
+    font-size: 1.8vh; /* Adjust font size for clarity */
+  }
+
+  /* Adjust images for mobile */
+  .floatLeft img, .floatRight img {
+    width: 50vw;
+    height: auto;
+    margin-bottom: 1vh; /* Ensure images don't crowd the layout */
+  }
+
+  /* Call to Action buttons adjustments */
   .ctas {
     flex-direction: column;
+    gap: 16px;
+    align-items: center;
   }
 
   .ctas a {
     font-size: 14px;
-    height: 40px;
     padding: 0 16px;
+    height: 40px;
+    width: 100%;
+    min-width: 180px;
   }
 
-  a.secondary {
-    min-width: auto;
+  .skillbody {
+    font-size: 1.2vh; /* Adjust body text size */
   }
 
-  .footer, .header {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .skillhead a, .skillhead b, .skillhead span a {
+    font-size: 1.5vh; /* Adjust link text size */
+  }
+
+  /* Spotlight */
+  .spotlight {
+    height: 45vh;
+    width: 45vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Reduce gap between skill items on mobile */
+  .skills * {
+    width: 100%;
   }
 }
 
