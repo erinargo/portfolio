@@ -452,6 +452,7 @@ a.secondary {
     min-height: auto;
 
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* Header and Footer */
@@ -559,11 +560,7 @@ a.secondary {
 
   /* Spotlight */
   .spotlight {
-    height: 45vh;
-    width: 45vh;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    display: none;
   }
 
   /* Reduce gap between skill items on mobile */
