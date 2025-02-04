@@ -451,8 +451,8 @@ a.secondary {
     padding-bottom: 80px; /* Space for footer */
     min-height: auto;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: hidden!important;
+    overflow-y: auto!important;
   }
 
   /* Header and Footer */
