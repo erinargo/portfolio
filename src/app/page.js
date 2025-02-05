@@ -163,8 +163,8 @@ export default function Home() {
                                 <b>2025 - Present</b>
                                 <b>Asymmetric Cross-Reality Collaboration - ACCR</b>
                                 <span>
-                                  <a>Github Link</a>
-                                  <a>Publication Link</a>
+                                  <a href={ 'https://github.com/erinargo/Asymmetric-Cross-Reality-Collaboration' }>Github Link</a>
+                                  <a>Publication Pending</a>
                                 </span>
                             </div>
                             <div className={styles.skillbody}>
@@ -193,7 +193,7 @@ export default function Home() {
                             <div className={styles.skillhead}>
                                 <b>2024</b>
                                 <b>StyleVeRse</b>
-                                <a>Github Link</a>
+                                <a href={ 'https://github.com/erinargo/stylevr' }>Github Link</a>
                             </div>
                             <div className={styles.skillbody}>
                                 StyleVR is a fashion show simulation in Virtual Reality designed for Research. <br/>
@@ -205,7 +205,7 @@ export default function Home() {
                             <div className={styles.skillhead}>
                                 <b>2024</b>
                                 <b>Entities of the Void -- EotV</b>
-                                <a>Github Link</a>
+                                <a href={ 'https://github.com/erinargo/entities-of-the-void' }>Github Link</a>
                             </div>
                             <div className={styles.skillbody}>
                                 EotV is a cooperative game about fighting aliens made in Unity. <br/>
