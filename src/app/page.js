@@ -111,10 +111,9 @@ export default function Home() {
 
             <header className={styles.header}>
                 <a href={ 'https://github.com/erinargo' }> <FontAwesomeIcon icon={faGithub} /> </a>
-                <FontAwesomeIcon icon={faLinkedin} />
-                <FontAwesomeIcon icon={faOrcid}/>
-                <FontAwesomeIcon icon={faGoogleScholar} />
-                <FontAwesomeIcon icon={faEnvelope} />
+                <a href={ 'https://www.linkedin.com/in/erin-argo-9b4052281/' }><FontAwesomeIcon icon={faLinkedin} /></a>
+                <a href={ 'https://orcid.org/0009-0004-3075-8047' }><FontAwesomeIcon icon={faOrcid}/></a>
+                <a href={ 'mailto:erinzoenyx@gmail.com' }><FontAwesomeIcon icon={faEnvelope} /></a>
             </header>
 
             <main className={styles.main}>
